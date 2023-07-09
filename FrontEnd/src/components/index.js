@@ -1,22 +1,26 @@
 import Logo from './Logo';
 import FormRow from './FormRow';
 import Alert from './Alert'
-import BigSidebar from './BigSidebar';
-import SmallSideBar from './SmallSideBar';
 import Navbar from './Navbar';
-import FormRowSelect from './FormRowSelect';
-import SearchContainer from './SearchContainer';
 import Loading from './Loading'
+import Header from './Header'
+import Skill from './Skill'
+import Products from './Products'
+import Services from './services'
+import Contact from './Contact'
+import Footer from './Footer'
 
 
 export {
  Logo,
  FormRow,
  Alert,
- BigSidebar,
- SmallSideBar,
  Navbar,
- FormRowSelect,
- SearchContainer,
  Loading,
+ Header,
+ Skill,
+ Products,
+ Services,
+ Contact,
+ Footer
 }
