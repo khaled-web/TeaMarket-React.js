@@ -30,7 +30,7 @@ const Navbar = () => {
           const {id, path, text} = i
           return(
             <li key={id}>
-              <Link className='nav-link' to={path}>{text}</Link>
+              <Link className='nav-link' onClick={closeSidebar} to={path}>{text}</Link>
             </li>
           )
         })}

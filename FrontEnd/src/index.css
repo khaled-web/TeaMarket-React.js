@@ -350,17 +350,17 @@ Header
  font-family: var(--fontFamily-primary2);
  color: var(--clr-primary);
  /* animation */
-  animation: slideFromDown 5s ease-in-out 1;
-
+  animation: slideFromUp 5s ease-in-out 1;
 }
 
 .banner h1{
+font-family: var(--fontFamily-primary1);
  text-transform: uppercase;
  color: var(--clr-white);
  margin-top: 1.25rem;
  margin-bottom: 2rem;
  /* animation */
- animation: slideFromUp 5s ease-in-out 1;
+ animation: slideFromDown 5s ease-in-out 1;
 }
 
 .banner-btn{

@@ -9,6 +9,7 @@ import Products from './Products'
 import Services from './services'
 import Contact from './Contact'
 import Footer from './Footer'
+import About from './About'
 
 
 export {
@@ -19,6 +20,7 @@ export {
  Loading,
  Header,
  Skill,
+ About,
  Products,
  Services,
  Contact,

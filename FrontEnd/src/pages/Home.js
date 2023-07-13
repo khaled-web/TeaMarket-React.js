@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar, Header, Skill, Products, Services, Contact,Footer} from '../components'
+import {Navbar, Header, Skill, About, Products, Services, Contact,Footer} from '../components'
 
 const Home = () => {
   return (
@@ -8,6 +8,7 @@ const Home = () => {
       <Header/>
       <div className="content-divider"></div>
       <Skill/>
+      <About/>
       <Products/>
       <Services/>
       <Contact/>
