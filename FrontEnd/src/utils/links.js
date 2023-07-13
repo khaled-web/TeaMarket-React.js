@@ -1,5 +1,9 @@
 
 import { FaMortarPestle, FaMugHot, FaBolt, FaTractor } from 'react-icons/fa';
+import productA from '../assets/images/product-1.jpeg'
+import productB from '../assets/images/product-2.jpeg'
+import productC from '../assets/images/product-3.jpeg'
+
 
 
 
@@ -11,13 +15,13 @@ export const navItems = [
  },
  {
   id:2,
-  text:'About',
-  path:'/about'
+  text:'Skills',
+  path:'/skills'
  },
  {
   id:3,
-  text:'Skills',
-  path:'/skills'
+  text:'About',
+  path:'/about'
  },
  {
   id:4,
@@ -60,6 +64,27 @@ export const skills = [
   title:'made in egypt',
   subject:'Egypt is the largest market for tea in the Middle East & North Africa area, with a consumption in 2003 of 77 400 tonnes. Its total imports have varied, but were at 79 000 tonnes in 2003. With only small exports, Egypt is apparent consumption in 2003 was 77 400 tonnes.',
   icon:<FaTractor/>
+ }
+]
+
+export const productsItems = [
+ {
+  id:1,
+  img:productA,
+  title:'ginger beach tea',
+  price:'LE-5.00'
+ },
+ {
+  id:2,
+  img:productB,
+  title:'Fruit Sangria',
+  price:'LE-15.00'
+ },
+ {
+  id:3,
+  img:productC,
+  title:'White Tea',
+  price:'LE-10.00'
  }
 ]
 
