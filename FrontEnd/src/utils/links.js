@@ -1,8 +1,11 @@
 
-import { FaMortarPestle, FaMugHot, FaBolt, FaTractor } from 'react-icons/fa';
+import { FaMortarPestle, FaMugHot, FaBolt, FaTractor,FaInfinity,FaClock,FaOpencart } from 'react-icons/fa';
 import productA from '../assets/images/product-1.jpeg'
 import productB from '../assets/images/product-2.jpeg'
 import productC from '../assets/images/product-3.jpeg'
+import service01 from '../assets/images/service-01.jpg'
+import service02 from '../assets/images/service-02.jpg'
+import service03 from '../assets/images/service-03.jpg'
 
 
 
@@ -85,6 +88,30 @@ export const productsItems = [
   img:productC,
   title:'White Tea',
   price:'LE-10.00'
+ }
+]
+
+export const serviceItems = [
+ {
+  id:1,
+  img:service01,
+  icon:<FaInfinity/>,
+  title:'UP TO 365 DAYS/YEAR',
+  paragraph:'Never making tea again! We really mean that. Our subscription plans include up to 365 days/year coverage. You can also choose to order more flexibly if that is your style.'
+ },
+ {
+  id:2,
+  img:service02,
+  icon:<FaClock/>,
+  title:'READY IN 20 MINUTES',
+  paragraph:'You are only twenty minutes away from your super healthy tea delivered right to your home. We work with the best types of tea in each town to ensure that you are 100% happy.'
+ },
+ {
+  id:3,
+  img:service03,
+  icon:<FaOpencart/>,
+  title:'ORDER ANYTHING',
+  paragraph:'We do not limit your creativity, which means you can order whatever you feel like. You can also choose from our menu containing over 100 types of tea. It is up to you!'
  }
 ]
 
