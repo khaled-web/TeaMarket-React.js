@@ -12,7 +12,8 @@ import {
  DISPLAY_ALERT,
  CLEAR_ALERT,
 SIDEBAR_OPEN,
-SIDEBAR_CLOSE
+SIDEBAR_CLOSE,
+POSITIVE_MESSAGE
 } from './action';
 import reducer from './reducer'
 import axios from 'axios'
@@ -65,6 +66,12 @@ const AppProvider = ({children})=>{
   },3000)
  }
 
+ //positiveMessage
+ const positiveMessage = ()=>{
+  dispatch({type:POSITIVE_MESSAGE})
+  clearAlert()
+ }
+
  //localStorage
  const addUserToLocalStorage =({user, token, location})=>{
   localStorage.setItem('user', JSON.stringify(user))
@@ -106,7 +113,8 @@ const AppProvider = ({children})=>{
   ...state, 
   displayAlert, 
   openSideBar,
-  closeSidebar
+  closeSidebar,
+  positiveMessage
   }}>
   {children}
  </AppContext.Provider>

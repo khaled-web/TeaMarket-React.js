@@ -8,7 +8,7 @@ import {
 import {UseAppContext} from '../context/appContext.js'
 import Logo from './Logo.js'
 import {navItems} from '../utils/links.js'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-scroll'
 //..........
 //App
 //..........
@@ -30,7 +30,7 @@ const Navbar = () => {
           const {id, path, text} = i
           return(
             <li key={id}>
-              <Link className='nav-link' onClick={closeSidebar} to={path}>{text}</Link>
+              <Link className='nav-link' onClick={closeSidebar} to={path} spy={true} smooth={true} offset={-100} duration={1000}>{text}</Link>
             </li>
           )
         })}

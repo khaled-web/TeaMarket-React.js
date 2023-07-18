@@ -3,7 +3,7 @@ import aboutImg from '../assets/images/about-img.jpg'
 import {Link} from 'react-router-dom'
 const About = () => {
   return (
-    <section>
+    <section id='about'>
       <div className="section-center clearfix">
         <article className="about-img">
           <div className="about-picture-container">

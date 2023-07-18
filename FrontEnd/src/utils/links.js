@@ -1,5 +1,6 @@
 
-import { FaMortarPestle, FaMugHot, FaBolt, FaTractor,FaInfinity,FaClock,FaOpencart } from 'react-icons/fa';
+import { FaMortarPestle, FaMugHot, FaBolt, FaTractor,FaInfinity,FaClock,FaOpencart,FaLocationArrow,FaEnvelopeOpen,FaFacebookSquare,FaTwitterSquare,
+FaInstagramSquare} from 'react-icons/fa';
 import productA from '../assets/images/product-1.jpeg'
 import productB from '../assets/images/product-2.jpeg'
 import productC from '../assets/images/product-3.jpeg'
@@ -14,32 +15,32 @@ export const navItems = [
  {
   id:1,
   text:'Home',
-  path:'/'
+  path:'hero'
  },
  {
   id:2,
   text:'Skills',
-  path:'/skills'
+  path:'skills'
  },
  {
   id:3,
   text:'About',
-  path:'/about'
+  path:'about'
  },
  {
   id:4,
   text:'Products',
-  path:'/product'
+  path:'products'
  },
- {
+{
   id:5,
-  text:'Cart',
-  path:'/cart'
+  text:'Services',
+  path:'services'
  },
  {
   id:6,
-  text:'checkout',
-  path:'/checkout'
+  text:'Contact',
+  path:'contact'
  }
 ]
 
@@ -113,6 +114,45 @@ export const serviceItems = [
   title:'ORDER ANYTHING',
   paragraph:'We do not limit your creativity, which means you can order whatever you feel like. You can also choose from our menu containing over 100 types of tea. It is up to you!'
  }
+]
+
+export const contactItems = [
+ {
+  id:1,
+  icon: <FaLocationArrow/>,
+  title: 'address',
+  info:'568 Rd. Maadi-Cairo, 11511 Egypt.'
+ },
+{
+  id:2,
+  icon: <FaEnvelopeOpen/>,
+  title: 'email',
+  info:'email@email.com'
+ },
+{
+  id:3,
+  icon: <FaEnvelopeOpen/>,
+  title: 'phone',
+  info:'+2 01012995245'
+ }
+]
+
+export const SocialMedia = [
+  {
+    id: 1,
+    url: 'https://www.facebook.com/',
+    icon: < FaFacebookSquare/>
+  },
+  {
+    id: 2,
+    url: 'https://www.twitter.com/',
+    icon: < FaTwitterSquare/>
+  },
+  {
+    id: 3,
+    url: 'https://www.instagram.com/',
+    icon: < FaInstagramSquare/>
+  },
 ]
 
 

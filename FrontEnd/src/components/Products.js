@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import {productsItems} from '../utils/links'
 const Products = () => {
   return (
-    <section className="products">
+    <section className="products" id='products'>
       <div className="section-center clearfix">
         <article className="products-info">
           <div className="section-title">
