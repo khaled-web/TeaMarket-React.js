@@ -1,6 +1,7 @@
 import React from 'react'
 import aboutImg from '../assets/images/about-img.jpg'
 import {Link} from 'react-router-dom'
+import '../assets/css/about.css'
 const About = () => {
   return (
     <section id='about'>

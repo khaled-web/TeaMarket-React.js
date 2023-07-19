@@ -1,5 +1,3 @@
-import Logo from './Logo';
-import FormRow from './FormRow';
 import Alert from './Alert'
 import Navbar from './Navbar';
 import Loading from './Loading'
@@ -10,6 +8,8 @@ import Services from './services'
 import Contact from './Contact'
 import Footer from './Footer'
 import About from './About'
+import FormRow from './FormRow'
+import Logo from './Logo'
 
 
 export {

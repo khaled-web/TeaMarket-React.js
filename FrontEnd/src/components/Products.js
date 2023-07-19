@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {productsItems} from '../utils/links'
+import '../assets/css/products.css'
 const Products = () => {
   return (
     <section className="products" id='products'>
@@ -18,9 +19,9 @@ const Products = () => {
         <article className="products-inventory clearfix">
           {
             productsItems.map((i)=>{
-              const {img, title, price} = i
+              const {id,img, title, price} = i
               return(
-                <div className="product">
+                <div key={id} className="product">
                   <img src={img} alt="single-product" className='product-img'/>
                   <h4 className="product-title">{title}</h4>
                   <h4 className='product-price'>{price}</h4>

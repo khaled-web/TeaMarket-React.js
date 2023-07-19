@@ -2,6 +2,7 @@ import React from 'react'
 import {
   SocialMedia
 } from '../utils/links.js'
+import '../assets/css/footer.css'
 const Footer = () => {
   return (
     <footer className='footer'>

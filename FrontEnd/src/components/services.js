@@ -1,5 +1,6 @@
 import React from 'react'
 import {serviceItems} from '../utils/links'
+import '../assets/css/service.css'
 const services = () => {
   return (
     <section className="services">

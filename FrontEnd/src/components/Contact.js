@@ -3,9 +3,9 @@ import emailjs from '@emailjs/browser'
 import {
   contactItems
 } from '../utils/links.js'
-import { useNavigate } from 'react-router-dom'
 import { UseAppContext } from '../context/appContext.js'
 import {Alert} from '../components'
+import '../assets/css/contact.css'
 
 const initialState = {
   from_name:'',
@@ -17,7 +17,6 @@ const Contact = () => {
   //useState
   const [values, setValues] =useState(initialState)
   const {showAlert, displayAlert,positiveMessage} = UseAppContext()
-  const navigate = useNavigate()
   //handleChange
   const handleChange = (e)=>{
     setValues({...values, [e.target.name]:e.target.value})

@@ -1,14 +1,14 @@
 //..........
 //importing
 //..........
-import React,{useState} from 'react'
+import React from 'react'
 import {
   FaBars, FaTimes
 } from 'react-icons/fa'
 import {UseAppContext} from '../context/appContext.js'
-import Logo from './Logo.js'
 import {navItems} from '../utils/links.js'
 import {Link} from 'react-scroll'
+import '../assets/css/nav.css'
 //..........
 //App
 //..........
@@ -17,7 +17,6 @@ const Navbar = () => {
   return (
     <main>
     <span className='nav-btn' onClick={openSideBar}>
-      {/* */}
       <FaBars/>
     </span>
 

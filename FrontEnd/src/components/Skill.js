@@ -1,5 +1,6 @@
 import React from 'react'
 import {skills} from '../utils/links'
+import '../assets/css/skill.css'
 
 const Skill = () => {
   return (
