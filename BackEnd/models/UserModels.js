@@ -49,11 +49,6 @@ UserSchema.pre('save', async function () {
  this.password = await bcrypt.hash(this.password, salt)
 })
 
-//comparePassword
-UserSchema.methods.comparePassword = async function (pass) {
- const isMatch = await bcrypt.compare(pass, this.password);
- return isMatch;
-}
 
 //CreatingJWT(register, login)
 UserSchema.methods.createJWT = function () {
@@ -65,6 +60,11 @@ UserSchema.methods.createJWT = function () {
  })
 }
 
+//comparePassword
+UserSchema.methods.comparePassword = async function (pass) {
+ const isMatch = await bcrypt.compare(pass, this.password);
+ return isMatch;
+}
 
 //.........
 //exporting

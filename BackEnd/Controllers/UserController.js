@@ -52,7 +52,35 @@ const registerUser = async (req, res) => {
 
 //login
 const loginUser = async (req, res) => {
- res.send('loginUser')
+ const {
+  email,
+  password
+ } = req.body
+
+ //check(no email,password)
+ if (!email || !password) {
+  throw new CustomError.BadRequestError("Please provide email and password")
+ }
+ //data(MongoDB)
+ const user = await User.findOne({
+  email
+ })
+ //check(ifEmailIsNotFound)
+ if (!user) {
+  throw new CustomError.UnauthenticatedError("Invalid Credentials")
+ }
+ //check(passwordIsCorrect)
+ // const isPasswordCorrect = await user.comparePassword(password)
+ // if (!isPasswordCorrect) {
+ //  throw new CustomError.UnauthenticatedError('Invalid Credentials')
+ // }
+ //JWT
+ const token = user.createJWT()
+
+ res.status(StatusCodes.OK).json({
+  user,
+  token
+ })
 }
 
 //getAllUsers
