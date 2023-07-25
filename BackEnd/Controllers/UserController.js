@@ -61,21 +61,23 @@ const loginUser = async (req, res) => {
  if (!email || !password) {
   throw new CustomError.BadRequestError("Please provide email and password")
  }
- //data(MongoDB)
+ //data(MongoDB)[Notes...PasswordSchema>>Select:false]so..selectPassword
  const user = await User.findOne({
   email
- })
+ }).select('+password')
  //check(ifEmailIsNotFound)
  if (!user) {
   throw new CustomError.UnauthenticatedError("Invalid Credentials")
  }
  //check(passwordIsCorrect)
- // const isPasswordCorrect = await user.comparePassword(password)
- // if (!isPasswordCorrect) {
- //  throw new CustomError.UnauthenticatedError('Invalid Credentials')
- // }
+ const isPasswordCorrect = await user.comparePassword(password)
+ if (!isPasswordCorrect) {
+  throw new CustomError.UnauthenticatedError('Invalid Credentials')
+ }
  //JWT
  const token = user.createJWT()
+ //displayPassword
+ user.password = undefined;
 
  res.status(StatusCodes.OK).json({
   user,
