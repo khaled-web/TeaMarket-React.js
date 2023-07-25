@@ -26,7 +26,7 @@ router.route('/login').post(loginUser)
 router.route('/users').get(auth, getAllUsers)
 router.route('/showMe').get(auth, showCurrentUser)
 router.route('/updatePass').patch(auth, updatePassword)
-router.route('/updateName').patch(updateName)
+router.route('/updateName').patch(auth, updateName)
 router.route('/users/:id').get(auth, getSingleUser)
 
 //............

@@ -148,9 +148,32 @@ const updatePassword = async (req, res) => {
  })
 }
 
-//updateName
+//updateName,email
 const updateName = async (req, res) => {
- res.send('updateName')
+ const {
+  email,
+  name
+ } = req.body
+ //check
+ if (!email || !name) {
+  throw new CustomError.BadRequestError('Please provide all values')
+ }
+ //GetData(MongoDB)
+ const user = await User.findOne({
+  _id: req.user.userId
+ })
+ //setAnewData
+ user.name = name
+ user.email = email
+ //saveNewData
+ await user.save()
+ //createJWt
+ const token = user.createJWT()
+
+ res.status(StatusCodes.OK).json({
+  user,
+  token
+ })
 }
 
 //.........
