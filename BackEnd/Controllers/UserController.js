@@ -120,7 +120,32 @@ const showCurrentUser = async (req, res) => {
 
 //updatePassword
 const updatePassword = async (req, res) => {
- res.send('updatePassword')
+ const {
+  oldPassword,
+  newPassword
+ } = req.body
+ //check
+ if (!oldPassword || !newPassword) {
+  throw new CustomError.BadRequestError('Please provide both values')
+ }
+ //selectAccount
+ const user = await User.findOne({
+  _id: req.user.userId
+ }).select('+password')
+ //comparePassword
+ const isPasswordCorrect = await user.comparePassword(oldPassword)
+ if (!isPasswordCorrect) {
+  throw new CustomError.UnauthenticatedError('Invalid Credentials')
+ }
+
+ user.password = newPassword
+
+ //toKeepHashPassword
+ await user.save()
+
+ res.status(StatusCodes.OK).json({
+  msg: 'Success!Password Updated'
+ })
 }
 
 //updateName
