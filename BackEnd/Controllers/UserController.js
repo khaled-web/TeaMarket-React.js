@@ -87,17 +87,35 @@ const loginUser = async (req, res) => {
 
 //getAllUsers
 const getAllUsers = async (req, res) => {
- res.send('getAllUsers')
+ const users = await User.find({
+  role: 'user'
+ }).select('-password')
+
+ res.status(StatusCodes.OK).json({
+  users
+ })
 }
 
 //getSingleUser
 const getSingleUser = async (req, res) => {
- res.send('getSingleUser')
+ const user = await User.findOne({
+  _id: req.params.id
+ }).select('-password')
+ //check(UserNotFound)
+ if (!user) {
+  throw new CustomError.NotFoundError(`no user with id ${req.params.id}`)
+ }
+
+ res.status(StatusCodes.OK).json({
+  user
+ })
 }
 
 //showCurrentUser
 const showCurrentUser = async (req, res) => {
- res.send('ShowCurrentUser')
+ res.status(StatusCodes.OK).json({
+  user: req.user
+ })
 }
 
 //updatePassword
