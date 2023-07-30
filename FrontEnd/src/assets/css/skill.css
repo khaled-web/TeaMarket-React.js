@@ -1,6 +1,7 @@
 
  .skills{
  background: var(--clr-grey-10);
+ margin: 0;
 }
 
 .skill{

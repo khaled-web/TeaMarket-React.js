@@ -17,5 +17,4 @@ const Error = () => {
     </Wrapper>
   )
 }
-
 export default Error

@@ -9,11 +9,9 @@ import Contact from './Contact'
 import Footer from './Footer'
 import About from './About'
 import FormRow from './FormRow'
-import Logo from './Logo'
 
 
 export {
- Logo,
  FormRow,
  Alert,
  Navbar,

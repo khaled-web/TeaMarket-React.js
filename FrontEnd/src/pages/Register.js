@@ -3,10 +3,10 @@
 //...........
 
 import React, {useEffect} from 'react'
-import {Logo, FormRow, Alert} from '../components'
-import Wrapper from '../assets/wrappers/RegisterPage'
+import {FormRow, Alert} from '../components'
 import { UseAppContext } from '../context/appContext'
 import {useNavigate} from 'react-router-dom'
+import '../assets/css/Register.css'
 
 //initial State
 const initialState = {
@@ -30,8 +30,6 @@ const Register = () => {
     isLoading,
     showAlert,
     displayAlert,
-    registerUser,
-    loginUser,
     setupUser
   } = UseAppContext();
   //ToggleMember-Function
@@ -54,7 +52,11 @@ const Register = () => {
     const currentUser = {name, email ,password}
     if(isMember){
       // loginUser(currentUser)
-      setupUser({currentUser, endPoint:'login', alertText:'Login Successful! Redirecting...'})
+      setupUser({
+        currentUser,
+        endPoint: 'login',
+        alertText: 'Login Successful! Redirecting...'
+      })
     }
     else{
       // registerUser(currentUser)
@@ -62,17 +64,16 @@ const Register = () => {
     }
   }
   //useEffect
-  useEffect(()=>{
-    if(user){
-      setTimeout(()=>{
-        navigate('/')
-      },3000)
-    }
-  },[user, navigate])
+  // useEffect(()=>{
+  //   if(user){
+  //     setTimeout(()=>{
+  //       navigate('/')
+  //     },3000)
+  //   }
+  // },[user, navigate])
   return (
-    <Wrapper className='full-page'>
+    <section className='register'>
       <form className='form' onSubmit={onSubmit}>
-        <Logo/>
         <h3>{values.isMember?"login":"register"}</h3>
         {showAlert && <Alert/>}
         {/* name input */}
@@ -83,17 +84,17 @@ const Register = () => {
         <FormRow type="email" name="email" value={values.email} handleChange={handleChange}/>
         {/* password input */}
         <FormRow type="password" name="password" value={values.password} handleChange={handleChange}/>
-        <button type='submit' className='btn btn-block' disabled={isLoading}>
+        <button type='submit' className='btn btn-block btn-middle' disabled={isLoading}>
           submit
         </button>
         <p>
-          {values.isMember?"Not a member yet...":"Already a member?"}
+          {values.isMember?"Not a member yet... ":"Already a member ? "}
           <button type='button' onClick={toggleMember} className="member-btn">
             {!values.isMember?"login":"register"}
           </button>
         </p>
       </form>
-    </Wrapper>
+    </section>
   )
 }
 //...........
