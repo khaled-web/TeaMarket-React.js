@@ -58,6 +58,7 @@
   letter-spacing: var(--spacing);
   color: var(--clr-grey-5);
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .nav-link:hover{

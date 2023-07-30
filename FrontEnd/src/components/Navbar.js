@@ -13,7 +13,7 @@ import '../assets/css/nav.css'
 //App
 //..........
 const Navbar = () => {
-  const {showSidebar, openSideBar,closeSidebar} =UseAppContext()
+  const {showSidebar, openSideBar,closeSidebar,logoutUser} =UseAppContext()
   return (
     <main>
     <span className='nav-btn' onClick={openSideBar}>
@@ -33,6 +33,9 @@ const Navbar = () => {
             </li>
           )
         })}
+        <li>
+          <Link className='nav-link' onClick={logoutUser}>logout</Link>
+        </li>
       </ul>
     </nav>
     </main>

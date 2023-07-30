@@ -6,7 +6,8 @@ import {
  POSITIVE_MESSAGE,
  SETUP_USER_BEGIN,
  SETUP_USER_SUCCESS,
- SETUP_USER_ERROR
+ SETUP_USER_ERROR,
+ LOGOUT_USER
 } from './action'
 
 const reducer = (state, action) => {
@@ -78,6 +79,15 @@ const reducer = (state, action) => {
    showAlert: true,
    alertType: 'danger',
    alertText: action.payload.msg
+  }
+ }
+ //logout
+ if (action.type === LOGOUT_USER) {
+  return {
+   ...state,
+   user: null,
+   token: null,
+   showSidebar: false
   }
  }
  throw new Error(`no such action : ${action.type}`)

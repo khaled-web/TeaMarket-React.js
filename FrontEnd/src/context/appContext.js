@@ -3,10 +3,8 @@
 //.............
 
 import React, {
- useState,
  useReducer,
- useContext,
- useEffect
+ useContext
 } from 'react';
 import {
  DISPLAY_ALERT,
@@ -16,7 +14,8 @@ SIDEBAR_CLOSE,
 POSITIVE_MESSAGE,
 SETUP_USER_BEGIN,
 SETUP_USER_SUCCESS,
-SETUP_USER_ERROR
+SETUP_USER_ERROR,
+LOGOUT_USER
 } from './action';
 import reducer from './reducer'
 import axios from 'axios'
@@ -86,12 +85,6 @@ const AppProvider = ({children})=>{
   localStorage.removeItem('token')
  }
 
- //registerUser
- const registerUser = async (currentUser)=>{}
-
- //loginUser
- const loginUser = async(currentUser)=>{}
-
   //setupUser
  const setupUser = async({currentUser, endPoint, alertText})=>{
   dispatch({type:SETUP_USER_BEGIN})
@@ -113,11 +106,11 @@ const AppProvider = ({children})=>{
   clearAlert()
  }
 
-  //Toggle-sidebar
-  const toggleSidebar = ()=>{}
-
   //logout_user
-  const logoutUser = ()=>{}
+  const logoutUser = ()=>{
+    dispatch({type:LOGOUT_USER})
+    removeUserFromLocalStorage()
+  }
 
   //update_user
   const updateUser = async(currentUser)=>{}
@@ -134,7 +127,8 @@ const AppProvider = ({children})=>{
   openSideBar,
   closeSidebar,
   positiveMessage,
-  setupUser
+  setupUser,
+  logoutUser
   }}>
   {children}
  </AppContext.Provider>

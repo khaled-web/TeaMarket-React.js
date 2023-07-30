@@ -2,6 +2,10 @@
  .about-img, .about-info{
   padding: 2rem 0;
  }
+ 
+ .leftSide{
+  text-align: left;
+ }
 
  .about-picture-container{
   background: var(--clr-primary);

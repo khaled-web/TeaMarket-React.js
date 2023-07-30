@@ -7,11 +7,11 @@ const Products = () => {
     <section className="products" id='products'>
       <div className="section-center clearfix">
         <article className="products-info">
-          <div className="section-title">
-            <h3>check out</h3>
+          <div div className = "section-title" >
+            <h3 className='leftSide'>check out</h3>
             <h2>our product</h2>
           </div>
-          <p className="product-text">
+          <p className="product-text leftSide">
             All our types of tea are fresh, organic and local. all types of tea are grown without added hormones or antibiotics. Good for your health, and the environment, and it also tastes better!
           </p>
           <Link to='/product' className='btn'>inventory</Link>

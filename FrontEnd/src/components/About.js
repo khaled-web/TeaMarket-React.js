@@ -13,10 +13,10 @@ const About = () => {
         </article>
         <article className="about-info">
           <div className="section-title">
-            <h3>about our</h3>
+            <h3 className='leftSide'>about our</h3>
             <h2>tea market</h2>
           </div>
-          <p className='about-text'>
+          <p className='about-text leftSide'>
             Hello, we’re tea market, your new premium tea delivery service. We know you’re always busy. No time for rest. So let us take care of that, we’re really good at it, we promise!
           </p>
           <Link to='/product' className='btn'>learn more</Link>

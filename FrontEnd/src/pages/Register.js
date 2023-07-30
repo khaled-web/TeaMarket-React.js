@@ -64,13 +64,13 @@ const Register = () => {
     }
   }
   //useEffect
-  // useEffect(()=>{
-  //   if(user){
-  //     setTimeout(()=>{
-  //       navigate('/')
-  //     },3000)
-  //   }
-  // },[user, navigate])
+  useEffect(()=>{
+    if(user){
+      setTimeout(()=>{
+        navigate('/')
+      },3000)
+    }
+  },[user, navigate])
   return (
     <section className='register'>
       <form className='form' onSubmit={onSubmit}>
