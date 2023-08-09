@@ -9,6 +9,10 @@ import Contact from './Contact'
 import Footer from './Footer'
 import About from './About'
 import FormRow from './FormRow'
+import PageHero from './PageHero'
+import Filters from './Filters'
+import Sort from './Sort'
+import ProductList from './ProductList'
 
 
 export {
@@ -22,5 +26,9 @@ export {
  Products,
  Services,
  Contact,
- Footer
+ Footer,
+ PageHero,
+ Filters,
+ Sort,
+ ProductList
 }

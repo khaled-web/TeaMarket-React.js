@@ -37,6 +37,17 @@ const initialState = {
  user:user ? JSON.parse(user) : null,
  token:token,
  showSidebar:false,
+ //filtering
+ filtered_products:[],
+ allProducts:[],
+ grideView:true,
+ sort:'price lowest',
+ filter:{
+  text:'',
+  mini_price:0,
+  max_price:0,
+  price:0
+ }
 }
 
 //AppContext

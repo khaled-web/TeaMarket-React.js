@@ -1,0 +1,22 @@
+.heroSec{
+ background: var(--clr-primary);
+ width: 100%;
+ min-height: 20vh;
+ display: flex;
+ align-items: center;
+ color: var(--clr-primary-light);
+ position: relative;
+}
+
+.heroLink{
+ color: var(--clr-white);
+ padding: 0.5rem;
+ transition: var(--transition);
+ position: absolute;
+ left: 5rem;
+ top: 3rem;
+}
+
+.heroLink:hover{
+ color: var(--clr-grey-200);
+}
