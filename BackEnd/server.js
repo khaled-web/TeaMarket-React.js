@@ -16,11 +16,12 @@ const connectDB = require('./db/connect.js')
 const morgan = require('morgan')
 //routes
 const userRoutes = require('./routes/UserRoutes.js')
+const productRoutes = require('./routes/ProductRoutes.js')
 //middleware
 const notFoundMiddleware = require('./middleware/not-found.js')
 const errorHandlerMiddleware = require('./middleware/error-handler.js')
-//authenticateUser
-const authenticateUser = require('./middleware/auth-JWT.js')
+//fileUpload
+const fileUpload = require('express-fileupload')
 
 
 //.........
@@ -35,6 +36,9 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(cors())
 //usingData.jsonInPostman
 app.use(express.json())
+//fileUpload
+app.use(express.static('./public'))
+app.use(fileUpload())
 //GeneralRoute
 app.get('/', (req, res) => {
  // throw new Error('error')
@@ -45,6 +49,7 @@ app.get('/', (req, res) => {
 
 //routes
 app.use('/api/v1', userRoutes)
+app.use('/api/v1/product', productRoutes)
 
 //middleware
 app.use(notFoundMiddleware)
