@@ -50,7 +50,7 @@ const initialState = {
  single_product_error:false,
  single_product:[],
  //filtering
- grideView:true,
+ grideView:false,
  sort:'price lowest',
  filter:{
   text:'',

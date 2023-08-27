@@ -34,7 +34,11 @@ function App() {
         }/>
         <Route path='/skills' element={<Skills/>}/>
         <Route path='/about' element={<About/>}/>
-        <Route path='/product' element={<Product/>}/>
+        <Route path='/product' element={
+        <ProtectedRoute>
+          <Product/>
+        </ProtectedRoute>
+        }/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/checkout' element={<Checkout/>}/>
         <Route path='*' element={<Error/>}/>

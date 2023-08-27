@@ -1,0 +1,32 @@
+.listStyled{
+ display: grid;
+ row-gap: 3rem;
+}
+
+.listImg{
+ width: 100%;
+ display: block;
+ width: 300px;
+ height: 270px;
+ object-fit: cover;
+ border-radius: var(--radius);
+ margin-bottom: 1rem;
+}
+
+.ListH4{
+ margin-bottom: .5rem;
+}
+
+.price{
+ color: var(--clr-primary);
+ font-size: 1.25rem;
+}
+
+@media (min-width:992px){
+ .listArticle{
+ display: grid;
+ grid-template-columns: auto 1fr;
+  column-gap: 2rem;
+  align-items: center;
+ }
+}
