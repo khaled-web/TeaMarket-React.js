@@ -7,7 +7,13 @@ import {
  SETUP_USER_BEGIN,
  SETUP_USER_SUCCESS,
  SETUP_USER_ERROR,
- LOGOUT_USER
+ LOGOUT_USER,
+ GET_PRODUCTS_BEGIN,
+ GET_PRODUCTS_SUCCESS,
+ GET_PRODUCTS_ERROR,
+ UPDATE_SORT,
+ SET_GRIDVIEW,
+ SET_LISTVIEW,
 } from './action'
 
 const reducer = (state, action) => {
@@ -90,6 +96,51 @@ const reducer = (state, action) => {
    showSidebar: false
   }
  }
+ //product-begin
+ if (action.type === GET_PRODUCTS_BEGIN) {
+  return {
+   ...state,
+   isLoading: true
+  }
+ }
+ //product-success
+ if (action.type === GET_PRODUCTS_SUCCESS) {
+  return {
+   ...state,
+   isLoading: false,
+   products: action.payload
+  }
+ }
+ //product-error
+ if (action.type === GET_PRODUCTS_ERROR) {
+  return {
+   ...state,
+   isLoading: false,
+   product_error: true
+  }
+ }
+ //updateSort
+ if (action.type === UPDATE_SORT) {
+  return {
+   ...state,
+   sort: action.payload
+  }
+ }
+ //setGridView
+ if (action.type === SET_GRIDVIEW) {
+  return {
+   ...state,
+   grid_view: true
+  }
+ }
+ //setListView
+ if (action.type === SET_LISTVIEW) {
+  return {
+   ...state,
+   grid_view: false
+  }
+ }
+
  throw new Error(`no such action : ${action.type}`)
 }
 

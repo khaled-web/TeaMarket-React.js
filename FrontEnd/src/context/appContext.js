@@ -4,7 +4,8 @@
 
 import React, {
  useReducer,
- useContext
+ useContext,
+ useEffect
 } from 'react';
 import {
  DISPLAY_ALERT,
@@ -15,7 +16,13 @@ POSITIVE_MESSAGE,
 SETUP_USER_BEGIN,
 SETUP_USER_SUCCESS,
 SETUP_USER_ERROR,
-LOGOUT_USER
+LOGOUT_USER,
+GET_PRODUCTS_BEGIN,
+GET_PRODUCTS_SUCCESS,
+GET_PRODUCTS_ERROR,
+UPDATE_SORT,
+SET_GRIDVIEW,
+SET_LISTVIEW
 } from './action';
 import reducer from './reducer'
 import axios from 'axios'
@@ -37,9 +44,12 @@ const initialState = {
  user:user ? JSON.parse(user) : null,
  token:token,
  showSidebar:false,
+ //product
+ product_error:false,
+ products:[],
+ single_product_error:false,
+ single_product:[],
  //filtering
- filtered_products:[],
- allProducts:[],
  grideView:true,
  sort:'price lowest',
  filter:{
@@ -122,15 +132,48 @@ const AppProvider = ({children})=>{
     dispatch({type:LOGOUT_USER})
     removeUserFromLocalStorage()
   }
+  
+  //fetchProduct
+  const fetchProducts = async()=>{
+    dispatch({type:GET_PRODUCTS_BEGIN})
+    try {
 
-  //update_user
-  const updateUser = async(currentUser)=>{}
+      const response = await axios.get('http://localhost:4000/api/v1/product',{
+        headers:{
+          Authorization: 'Bearer ' + token
+        }
+      })
+      const products = response.data.product
+      console.log(products)
+      dispatch({
+        type:GET_PRODUCTS_SUCCESS,
+        payload:products
+      })
+    } catch (error) {
+      dispatch({type:GET_PRODUCTS_ERROR})
+    }
+  }
+  //setGridView
+  const setGridView=()=>{
+    dispatch({type:SET_GRIDVIEW})
+  }
+  //setListView
+  const setListView = ()=>{
+    dispatch({type:SET_LISTVIEW})
+  }
+  //updateSort
+  const updateSort = (e)=>{
+    const value = e.target.value
+    dispatch({type:UPDATE_SORT, payload:value})
+  }
 
-  //handleChange
-  const handleChange = ({name, value})=>{}
+  //useEffect
+  useEffect(()=>{
+    fetchProducts()
+  },[])
 
-  //clearValue
-  const clearValue = ()=>{}
+
+
 
   return <AppContext.Provider value={{
   ...state, 
@@ -139,7 +182,10 @@ const AppProvider = ({children})=>{
   closeSidebar,
   positiveMessage,
   setupUser,
-  logoutUser
+  logoutUser,
+  updateSort,
+  setGridView,
+  setListView
   }}>
   {children}
  </AppContext.Provider>

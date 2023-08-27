@@ -92,6 +92,7 @@ const getAllUsers = async (req, res) => {
  }).select('-password')
 
  res.status(StatusCodes.OK).json({
+  count: users.length,
   users
  })
 }

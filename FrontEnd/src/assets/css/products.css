@@ -22,9 +22,15 @@ background: var(--clr-grey-10);
  object-fit: cover;
 }
 
+.product-title{
+ text-align: center;
+}
+
 .product-price{
  color: var(--clr-primary);
+ text-align: center;
 }
+
 
  @media screen and (min-width: 768px){
   .product{
