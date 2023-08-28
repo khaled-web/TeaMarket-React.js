@@ -130,14 +130,14 @@ const reducer = (state, action) => {
  if (action.type === SET_GRIDVIEW) {
   return {
    ...state,
-   grid_view: true
+   grideView: true
   }
  }
  //setListView
  if (action.type === SET_LISTVIEW) {
   return {
    ...state,
-   grid_view: false
+   grideView: false
   }
  }
 

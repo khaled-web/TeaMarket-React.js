@@ -39,18 +39,20 @@
 }
 
 .productFooter{
- margin-top: 1rem;
- display: flex;
- justify-content: space-between;
- align-items: center;
+ display: block;
+ text-align: center;
 }
 
-.productFooter h5{
- margin-bottom: 0;
- font-weight: 400;
+.ProductH5{
+ margin-right: 1.5rem;
+ font-size: 1.5rem;
+ color: var(--clr-primary);
 }
 
-.productFooter p{
- margin-bottom: 0;
+.ProductP{
  font-weight: 400;
+ font-size: 1.25rem;
+ color: var(--clr-black);
+ transform: translateY(-20px) translateX(-10px);
+
 }

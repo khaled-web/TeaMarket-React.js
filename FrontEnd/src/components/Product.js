@@ -11,8 +11,8 @@ const Product = ({_id:id, image, price, name}) => {
       <Link className='link' to={`/products/${id}`}><FaSearch/></Link>
     </div>
     <footer className='productFooter'>
-     <h5>{name}</h5>
-     <p>{price}</p>
+     <h5 className='ProductH5'>{name}</h5>
+     <p className='ProductP'>{price} $</p>
     </footer>
    </article>
   )

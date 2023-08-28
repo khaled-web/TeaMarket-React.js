@@ -11,15 +11,19 @@
  object-fit: cover;
  border-radius: var(--radius);
  margin-bottom: 1rem;
+ font-size: 0.0rem;
 }
 
 .ListH4{
- margin-bottom: .5rem;
+ margin-bottom: 0;
+ color: var(--clr-primary);
+ font-size: 1.5rem;
 }
 
 .price{
- color: var(--clr-primary);
+ color: var(--clr-black);
  font-size: 1.25rem;
+ transform: translateY(10px);
 }
 
 @media (min-width:992px){
