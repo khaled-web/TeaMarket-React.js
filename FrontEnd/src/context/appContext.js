@@ -22,7 +22,8 @@ GET_PRODUCTS_SUCCESS,
 GET_PRODUCTS_ERROR,
 UPDATE_SORT,
 SET_GRIDVIEW,
-SET_LISTVIEW
+SET_LISTVIEW,
+SORT_PRODUCTS
 } from './action';
 import reducer from './reducer'
 import axios from 'axios'
@@ -50,8 +51,9 @@ const initialState = {
  single_product_error:false,
  single_product:[],
  //filtering
+ filtered_products: [],
  grideView:false,
- sort:'price lowest',
+ sort:'price-lowest',
  filter:{
   text:'',
   mini_price:0,
@@ -171,6 +173,10 @@ const AppProvider = ({children})=>{
   useEffect(()=>{
     fetchProducts()
   },[])
+
+  useEffect(()=>{
+    dispatch({type:SORT_PRODUCTS})
+  },[state.products,state.sort])
 
 
 

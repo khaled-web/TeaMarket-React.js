@@ -28,4 +28,6 @@ export const GET_PRODUCTS_ERROR = 'GET_PRODUCTS_ERROR'
 export const SET_GRIDVIEW = 'SET_GRIDVIEW'
 export const SET_LISTVIEW = 'SET_LISTVIEW'
 
+export const SORT_PRODUCTS = 'SORT_PRODUCTS'
+
 export const UPDATE_SORT = 'UPDATE_SORT'
