@@ -23,7 +23,10 @@ GET_PRODUCTS_ERROR,
 UPDATE_SORT,
 SET_GRIDVIEW,
 SET_LISTVIEW,
-SORT_PRODUCTS
+SORT_PRODUCTS,
+UPDATE_FILTERS,
+FILTER_PRODUCTS,
+LOAD_PRODUCTS
 } from './action';
 import reducer from './reducer'
 import axios from 'axios'
@@ -56,7 +59,7 @@ const initialState = {
  sort:'price-lowest',
  filter:{
   text:'',
-  mini_price:0,
+  min_price:0,
   max_price:0,
   price:0
  }
@@ -168,15 +171,33 @@ const AppProvider = ({children})=>{
     const value = e.target.value
     dispatch({type:UPDATE_SORT, payload:value})
   }
+  //UPDATE_FILTERS
+  const updateFilter = (e)=>{
+    let name = e.target.name;
+    let value = e.target.value;
+    if(name === 'price'){
+      value = Number(value)
+    }
+    dispatch({type:UPDATE_FILTERS, payload:{name,value}})
+  }
+  
 
   //useEffect
   useEffect(()=>{
     fetchProducts()
   },[])
 
+  // useEffect(()=>{
+  //   dispatch({
+  //     type:LOAD_PRODUCTS,
+  //     payload:state.products
+  //   })
+  // },[state.products])
+
   useEffect(()=>{
+    dispatch({type:FILTER_PRODUCTS})
     dispatch({type:SORT_PRODUCTS})
-  },[state.products,state.sort])
+  },[state.products,state.sort,state.filter])
 
 
 
@@ -191,7 +212,8 @@ const AppProvider = ({children})=>{
   logoutUser,
   updateSort,
   setGridView,
-  setListView
+  setListView,
+  updateFilter
   }}>
   {children}
  </AppContext.Provider>

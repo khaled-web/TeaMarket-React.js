@@ -14,7 +14,10 @@ import {
  UPDATE_SORT,
  SET_GRIDVIEW,
  SET_LISTVIEW,
- SORT_PRODUCTS
+ SORT_PRODUCTS,
+ UPDATE_FILTERS,
+ FILTER_PRODUCTS,
+
 } from './action'
 
 const reducer = (state, action) => {
@@ -165,10 +168,50 @@ const reducer = (state, action) => {
     return b.name.localeCompare(a.name)
    })
   }
-
   return {
    ...state,
    products: tempProducts
+  }
+ }
+ //update filter
+ if (action.type === UPDATE_FILTERS) {
+  const {
+   name,
+   value
+  } = action.payload
+  return {
+   ...state,
+   filter: {
+    ...state.filter,
+    [name]: value
+   }
+  }
+ }
+ //filterProducts
+ if (action.type === FILTER_PRODUCTS) {
+  const {
+   products
+  } = state
+  const {
+   text,
+   price
+  } = state.filter
+  let tempProducts = [...products]
+  //filter-text
+  if (text) {
+   tempProducts = tempProducts.filter((product) => {
+    return product.name.toLowerCase().startsWith(text)
+   })
+  }
+  //filter-price
+  if (price !== 'all') {
+   tempProducts = tempProducts.filter((product) => {
+    return product.price <= price
+   })
+  }
+  return {
+   ...state,
+   filtered_products: tempProducts
   }
  }
 
