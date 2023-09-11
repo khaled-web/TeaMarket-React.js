@@ -5,7 +5,7 @@ import {
 } from '../context/appContext'
 import '../assets/css/sortStyle.css'
 const Sort = () => {
-  const {grid_view, products,sort, updateSort,setGridView,setListView} = UseAppContext()
+  const {grid_view, products,sort, updateSort,setGridView,setListView, filtered_products} = UseAppContext()
   return ( 
     <section className='sortSec'>
       <div className="btn-container">
@@ -16,7 +16,7 @@ const Sort = () => {
           <BsList/>
         </button>
       </div>
-      <p className='PSort'>{products.length} products found</p>
+      <p className='PSort'>{filtered_products.length} products found</p>
       <hr/>
       <form>
         <label className='sortLabel' htmlFor="sort">sort by</label>

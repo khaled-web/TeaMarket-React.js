@@ -26,7 +26,7 @@ SET_LISTVIEW,
 SORT_PRODUCTS,
 UPDATE_FILTERS,
 FILTER_PRODUCTS,
-LOAD_PRODUCTS
+CLEAR_FILTERS
 } from './action';
 import reducer from './reducer'
 import axios from 'axios'
@@ -154,6 +154,7 @@ const AppProvider = ({children})=>{
         type:GET_PRODUCTS_SUCCESS,
         payload:products
       })
+      
     } catch (error) {
       dispatch({type:GET_PRODUCTS_ERROR})
     }
@@ -180,19 +181,16 @@ const AppProvider = ({children})=>{
     }
     dispatch({type:UPDATE_FILTERS, payload:{name,value}})
   }
+  //clearFilter
+  const clearFilter = ()=>{
+    dispatch({type:CLEAR_FILTERS})
+  }
   
 
   //useEffect
   useEffect(()=>{
     fetchProducts()
   },[])
-
-  // useEffect(()=>{
-  //   dispatch({
-  //     type:LOAD_PRODUCTS,
-  //     payload:state.products
-  //   })
-  // },[state.products])
 
   useEffect(()=>{
     dispatch({type:FILTER_PRODUCTS})
@@ -213,7 +211,8 @@ const AppProvider = ({children})=>{
   updateSort,
   setGridView,
   setListView,
-  updateFilter
+  updateFilter,
+  clearFilter
   }}>
   {children}
  </AppContext.Provider>

@@ -30,7 +30,7 @@ const Filters = () => {
             <input type="range" name='price' onChange={updateFilter} min={min_price} max={max_price} value={price}/>
           </div>
         </form>
-        <button type='button' className='clear-btn'>
+        <button type='button' className='clear-btn' onClick={clearFilter}>
           clear filter
         </button>   
       </div>

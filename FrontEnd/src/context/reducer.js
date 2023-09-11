@@ -17,7 +17,7 @@ import {
  SORT_PRODUCTS,
  UPDATE_FILTERS,
  FILTER_PRODUCTS,
-
+ CLEAR_FILTERS
 } from './action'
 
 const reducer = (state, action) => {
@@ -109,10 +109,18 @@ const reducer = (state, action) => {
  }
  //product-success
  if (action.type === GET_PRODUCTS_SUCCESS) {
+  let maxPrice = action.payload.map((p) => p.price)
+  maxPrice = Math.max(...maxPrice)
   return {
    ...state,
    isLoading: false,
-   products: action.payload
+   products: action.payload,
+   filtered_products: [...action.payload],
+   filter: {
+    ...state.filter,
+    max_price: maxPrice,
+    price: maxPrice
+   }
   }
  }
  //product-error
@@ -148,9 +156,10 @@ const reducer = (state, action) => {
  if (action.type === SORT_PRODUCTS) {
   const {
    sort,
-   products
+   products,
+   filtered_products
   } = state
-  let tempProducts = [...products]
+  let tempProducts = [...filtered_products]
   if (sort === 'price-lowest') {
    tempProducts = tempProducts.sort((a, b) => a.price - b.price)
   }
@@ -170,7 +179,7 @@ const reducer = (state, action) => {
   }
   return {
    ...state,
-   products: tempProducts
+   filtered_products: tempProducts
   }
  }
  //update filter
@@ -190,18 +199,22 @@ const reducer = (state, action) => {
  //filterProducts
  if (action.type === FILTER_PRODUCTS) {
   const {
-   products
+   filtered_products
   } = state
   const {
    text,
    price
   } = state.filter
-  let tempProducts = [...products]
+  let tempProducts = [...filtered_products]
   //filter-text
   if (text) {
    tempProducts = tempProducts.filter((product) => {
     return product.name.toLowerCase().startsWith(text)
    })
+   return {
+    ...state,
+    filtered_products: tempProducts
+   }
   }
   //filter-price
   if (price !== 'all') {
@@ -212,6 +225,17 @@ const reducer = (state, action) => {
   return {
    ...state,
    filtered_products: tempProducts
+  }
+ }
+ //clearFilter
+ if (action.type === CLEAR_FILTERS) {
+  return {
+   ...state,
+   filter: {
+    ...state.filter,
+    text: '',
+    price: state.filter.max_price,
+   }
   }
  }
 
