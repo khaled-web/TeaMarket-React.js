@@ -115,7 +115,8 @@ const AppProvider = ({children})=>{
  const setupUser = async({currentUser, endPoint, alertText})=>{
   dispatch({type:SETUP_USER_BEGIN})
   try {
-    const response = await axios.post(`http://localhost:4000/api/v1/${endPoint}`, currentUser)
+    // const response = await axios.post(`http://localhost:4000/api/v1/${endPoint}`, currentUser)
+    const response = await axios.post(`https://teamarket.onrender.com/api/v1/${endPoint}`, currentUser)
     // console.log(response)
     const {token, user} = response.data
     dispatch({
@@ -143,7 +144,8 @@ const AppProvider = ({children})=>{
     dispatch({type:GET_PRODUCTS_BEGIN})
     try {
 
-      const response = await axios.get('http://localhost:4000/api/v1/product',{
+      // const response = await axios.get('http://localhost:4000/api/v1/product',{
+      const response = await axios.get('https://teamarket.onrender.com/api/v1/product',{
         headers:{
           Authorization: 'Bearer ' + token
         }
