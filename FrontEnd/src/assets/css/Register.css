@@ -92,4 +92,10 @@
   text-transform: capitalize;
 }
 
+.RegisterLogin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 

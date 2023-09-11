@@ -87,7 +87,7 @@ const Register = () => {
         <button type='submit' className='btn btn-block btn-middle' disabled={isLoading}>
           submit
         </button>
-        <p>
+        <p className='RegisterLogin'>
           {values.isMember?"Not a member yet... ":"Already a member ? "}
           <button type='button' onClick={toggleMember} className="member-btn">
             {!values.isMember?"login":"register"}
