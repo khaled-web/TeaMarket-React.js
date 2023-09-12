@@ -6,6 +6,14 @@
  overflow-y: hidden;
 }
 
+.header-landing{
+ min-height: 100vh;
+ background:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/pexels-photo-1629185.webp") center/ cover no-repeat fixed;
+ position: relative;
+ /* animation */
+ overflow-y: hidden;
+}
+
 .banner{
  text-align: center;
  position: absolute;
